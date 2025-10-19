@@ -4,6 +4,7 @@ import App from './App'
 import HomePage from './pages/HomePage'
 import WebsocketPage from './pages/WebsocketPage'
 import NotFoundPage from './pages/NotFoundPage'
+import SumoPage from './pages/SumoPage'
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
       {
         path: ':id',
         element: <WebsocketPage />
+      },
+      {
+        path: 'sumo/torikumi/:division/:day',
+        element: <SumoPage />
       },
       {
         path: 'not-found',
