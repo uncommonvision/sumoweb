@@ -1,38 +1,52 @@
 import { useParams } from 'react-router-dom'
-import { RikishiMatchCard } from '@/components/ui'
-import { matches } from '@/stubs/sumo'
-import { useKeydownShortcut } from '@/hooks/useKeydownShortcut'
-import { useLanguagePreference } from '@/hooks/useLanguagePreference'
+import { useState, useRef, useEffect } from 'react'
+import { RikishiMatchCard, RikishiMatchListColumns } from '@/components/ui'
+import type { Match } from '@/types'
 
-export default function MatchList() {
+interface MatchListProps {
+  matches: Match[],
+}
+
+export default function MatchList({ matches, }: MatchListProps) {
   const { division, day } = useParams<{ division: string; day: string }>()
-  const [language, setLanguage] = useLanguagePreference()
+  const [matchList, setMatchList] = useState<Match[]>(matches)
+  const [expandedRow, setExpandedRow] = useState<number | null>(null)
+  const rowRefs = useRef<(HTMLDivElement | null)[]>([])
 
-  useKeydownShortcut(
-    { key: 'l', ctrl: false },
-    () => setLanguage(prev => prev === 'en' ? 'jp' : 'en'),
-    'Toggle Language',
-    'Switch between English and Japanese display'
-  )
+  useEffect(() => {
+    if (expandedRow !== null && rowRefs.current[expandedRow]) {
+      const element = rowRefs.current[expandedRow]
+      if (element) {
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY
+        const offsetPosition = elementPosition - 80
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
+      }
+    }
+  }, [expandedRow])
 
   return (
-    <div className="space-y-4">
+    <div className="m-auto sm:max-w-2xl space-y-4">
       {/* Column headers */}
-      <div className="flex gap-4 text-center font-semibold text-muted-foreground">
-        <div className="flex-4 md:flex-2">East</div>
-        <div className="flex-1"></div>
-        <div className="flex-4 md:flex-2">West</div>
-      </div>
+      <RikishiMatchListColumns />
 
       {/* Match rows */}
-      {matches.map((match, index) => (
-        <div key={index} className="flex gap-2 items-start border border-border shadow-sm rounded md:h-[100px] overflow-hidden">
+      {matchList.map((match, index) => (
+        <div
+          ref={(el) => (rowRefs.current[index] = el)}
+          key={index}
+          onClick={() => setExpandedRow(expandedRow === index ? null : index)}
+          className={`flex gap-2 items-start border border-border shadow-sm rounded overflow-hidden transition-all duration-300 cursor-pointer hover:shadow-md`}
+        >
           <div className="flex-4 md:flex-2 h-full">
-            <RikishiMatchCard rikishi={match.east} side="east" language={language} />
+            <RikishiMatchCard rikishi={match.east} side="east" />
           </div>
           <div className="flex h-full"></div>
           <div className="flex-4 md:flex-2 h-full">
-            <RikishiMatchCard rikishi={match.west} side="west" language={language} />
+            <RikishiMatchCard rikishi={match.west} side="west" />
           </div>
         </div>
       ))}

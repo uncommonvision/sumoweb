@@ -1,3 +1,4 @@
 export { default as Header } from './Header'
 export { default as DefaultLayout } from './DefaultLayout'
 export { default as CenteredFullScreenLayout } from './CenteredFullScreenLayout'
+export { default as NoAuthLayout } from './NoAuthLayout'

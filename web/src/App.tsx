@@ -1,10 +1,13 @@
 import { Outlet } from 'react-router-dom'
 import { ThemeProvider } from "@/components/theme-provider"
+import { LanguageProvider } from "@/contexts/LanguageContext"
 
 function App() {
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-      <Outlet />
+      <LanguageProvider>
+        <Outlet />
+      </LanguageProvider>
     </ThemeProvider>
   )
 }

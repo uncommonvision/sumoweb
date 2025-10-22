@@ -333,16 +333,16 @@ export const matches: Match[] = [
   },
   {
     "east": {
-      "id": "4055",
-      "shikona_jp": "熱海富士",
-      "shikona_en": "Atamifuji",
-      "banzuke_name_jp": "前頭三枚目",
-      "banzuke_name_en": "Maegashira #3",
-      "won": 5,
-      "lost": 10,
+      "id": "3761",
+      "shikona_jp": "若隆景",
+      "shikona_en": "Wakatakakage",
+      "banzuke_name_jp": "関脇",
+      "banzuke_name_en": "Sekiwake",
+      "won": 6,
+      "lost": 9,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": false,
       "kyokai_member_id": ""
     },
     "west": {
@@ -543,16 +543,16 @@ export const matches: Match[] = [
   },
   {
     "east": {
-      "id": "3761",
-      "shikona_jp": "若隆景",
-      "shikona_en": "Wakatakakage",
-      "banzuke_name_jp": "関脇",
-      "banzuke_name_en": "Sekiwake",
-      "won": 6,
-      "lost": 9,
+      "id": "4055",
+      "shikona_jp": "熱海富士",
+      "shikona_en": "Atamifuji",
+      "banzuke_name_jp": "前頭三枚目",
+      "banzuke_name_en": "Maegashira #3",
+      "won": 5,
+      "lost": 10,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": true,
       "kyokai_member_id": ""
     },
     "west": {
