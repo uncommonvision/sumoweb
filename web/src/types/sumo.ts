@@ -8,6 +8,13 @@ export const MATCH_RESULT = {
 
 export type MatchResult = typeof MATCH_RESULT[keyof typeof MATCH_RESULT]
 
+export const MATCH_SIDE = {
+  EAST: 'east',
+  WEST: 'west',
+} as const
+
+export type MatchSide = typeof MATCH_SIDE[keyof typeof MATCH_SIDE]
+
 export interface RikishiProfileDetails {
   stable: string
   stable_url: string

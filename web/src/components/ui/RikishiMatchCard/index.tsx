@@ -1,17 +1,18 @@
-import type { Rikishi } from '@/types'
+import type { Rikishi, MatchSide } from '@/types'
+import { MATCH_SIDE } from '@/types'
 import RikishiMatchCardImage from '../RikishiMatchCardImage'
 import RikishiMatchCardResult from '../RikishiMatchCardResult'
 import { useLanguagePreference } from '@/hooks/useLanguagePreference'
 
 interface RikishiMatchCardProps {
   rikishi: Rikishi
-  side: 'east' | 'west'
+  side: MatchSide
   isExpanded?: boolean
 }
 
 export default function RikishiMatchCard({ rikishi, side, isExpanded = false }: RikishiMatchCardProps) {
   const [language] = useLanguagePreference()
-  const isEast = side === 'east'
+  const isEast = side === MATCH_SIDE.EAST
   return (
     <div className="bg-card relative text-card-foreground flex items-start h-full">
       <RikishiMatchCardResult rikishi={rikishi} side={side} />

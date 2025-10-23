@@ -1,9 +1,9 @@
-import type { Rikishi } from '@/types'
-import { MATCH_RESULT } from '@/types'
+import type { Rikishi, MatchSide } from '@/types'
+import { MATCH_RESULT, MATCH_SIDE } from '@/types'
 
 interface RikishiMatchCardResultProps {
   rikishi: Rikishi
-  side: 'east' | 'west'
+  side: MatchSide
 }
 
 export default function RikishiMatchCardResult({ rikishi, side }: RikishiMatchCardResultProps) {
@@ -13,7 +13,7 @@ export default function RikishiMatchCardResult({ rikishi, side }: RikishiMatchCa
 
   return (
     <div className={`absolute bottom-0 bg-stone-500 p-1
-      ${side == 'east' ? 'left-0 rounded-tr rounded-bl' : 'right-0 rounded-tl rounded-br'}`}>
+      ${side === MATCH_SIDE.EAST ? 'left-0 rounded-tr rounded-bl' : 'right-0 rounded-tl rounded-br'}`}>
       <div className={`w-4 h-4 rounded-full shadow ${rikishi.result === MATCH_RESULT.WON ? 'bg-white' : 'bg-black'}`}></div>
     </div>
   )
