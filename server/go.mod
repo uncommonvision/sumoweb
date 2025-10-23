@@ -1,4 +1,4 @@
-module aframe/server
+module sumoweb/server
 
 go 1.25.0
 

@@ -6,8 +6,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"aframe/server/internal/handlers"
-	"aframe/server/internal/routes"
+	"sumoweb/server/internal/handlers"
+	"sumoweb/server/internal/routes"
 	"github.com/gin-gonic/gin"
 )
 

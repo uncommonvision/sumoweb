@@ -1,9 +1,11 @@
 package routes
 
 import (
-	"aframe/server/internal/handlers"
-	wsHandlers "aframe/server/internal/handlers/websocket"
-	"aframe/server/internal/middleware"
+	"sumoweb/server/internal/handlers"
+	matchHandlers "sumoweb/server/internal/handlers/match"
+	rikishiHandlers "sumoweb/server/internal/handlers/rikishi"
+	wsHandlers "sumoweb/server/internal/handlers/websocket"
+	"sumoweb/server/internal/middleware"
 	"github.com/gin-gonic/gin"
 )
 
@@ -17,5 +19,8 @@ func Setup(router *gin.Engine) {
 	api := router.Group("api/v1")
 	{
 		api.GET("/ws/:id", wsHandlers.HandleWebSocket)
+		api.GET("/matches/:division/:day", matchHandlers.HandleGetMatches)
+		api.GET("/rikishi/:id", rikishiHandlers.HandleGetRikishi)
+		api.GET("/rikishi/:id/:lang/image.png", rikishiHandlers.HandleGetRikishiImage)
 	}
 }

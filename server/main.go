@@ -9,8 +9,8 @@ import (
 	"syscall"
 	"time"
 
-	"aframe/server/internal/config"
-	"aframe/server/internal/routes"
+	"sumoweb/server/internal/config"
+	"sumoweb/server/internal/routes"
 	"github.com/gin-gonic/gin"
 )
 

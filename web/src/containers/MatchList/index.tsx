@@ -1,15 +1,12 @@
-import { useParams } from 'react-router-dom'
 import { useState, useRef, useEffect } from 'react'
 import { RikishiMatchCard, RikishiMatchListColumns } from '@/components/ui'
 import type { Match } from '@/types'
 
 interface MatchListProps {
-  matches: Match[],
+  matches: Match[]
 }
 
-export default function MatchList({ matches, }: MatchListProps) {
-  const { division, day } = useParams<{ division: string; day: string }>()
-  const [matchList, setMatchList] = useState<Match[]>(matches)
+export default function MatchList({ matches }: MatchListProps) {
   const [expandedRow, setExpandedRow] = useState<number | null>(null)
   const rowRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -34,7 +31,7 @@ export default function MatchList({ matches, }: MatchListProps) {
       <RikishiMatchListColumns />
 
       {/* Match rows */}
-      {matchList.map((match, index) => (
+      {matches.map((match, index) => (
         <div
           ref={(el) => (rowRefs.current[index] = el)}
           key={index}

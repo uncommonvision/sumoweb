@@ -31,12 +31,12 @@ server-dev+:
 
 server-build:
 	@echo "Building server..."
-	@cd server && go build -o ../bin/aframe-server main.go
-	@echo "Build complete: bin/aframe-server"
+	@cd server && go build -o ./bin/sumoweb-server main.go
+	@echo "Build complete: ./server/bin/sumoweb-server"
 
 server-test:
 	@echo "Running server tests..."
-	@cd server && go test ./tests/... -v
+	@cd server && go test ./server/tests/... -v
 
 server-clean:
 	@echo "Cleaning server build artifacts..."

@@ -3,7 +3,7 @@ package websocket
 import (
 	"log"
 
-	ws "aframe/server/internal/websocket"
+	ws "sumoweb/server/internal/websocket"
 )
 
 func HandlePing(conn *ws.Connection, msg ws.WSMessage) {
