@@ -1,5 +1,13 @@
 export type Language = 'en' | 'jp'
 
+export const MATCH_RESULT = {
+  PENDING: -1,
+  LOST: 0,
+  WON: 1,
+} as const
+
+export type MatchResult = typeof MATCH_RESULT[keyof typeof MATCH_RESULT]
+
 export interface RikishiProfileDetails {
   stable: string
   stable_url: string
@@ -32,7 +40,7 @@ export interface Rikishi {
   lost: number
   rest_jp: string
   rest_en: string
-  result: boolean
+  result: MatchResult
   kyokai_member_id: string
   profile?: RikishiProfile
 }

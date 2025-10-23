@@ -1,4 +1,5 @@
 import type { Match, Rikishi } from '@/types'
+import { MATCH_RESULT } from '@/types'
 
 export const matches: Match[] = [
   {
@@ -12,7 +13,7 @@ export const matches: Match[] = [
       "lost": 6,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "west": {
@@ -25,7 +26,7 @@ export const matches: Match[] = [
       "lost": 9,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "judge_id": "1",
@@ -42,7 +43,7 @@ export const matches: Match[] = [
       "lost": 10,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "west": {
@@ -55,7 +56,7 @@ export const matches: Match[] = [
       "lost": 8,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "judge_id": "2",
@@ -72,7 +73,7 @@ export const matches: Match[] = [
       "lost": 13,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "west": {
@@ -85,7 +86,7 @@ export const matches: Match[] = [
       "lost": 8,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "judge_id": "2",
@@ -102,7 +103,7 @@ export const matches: Match[] = [
       "lost": 6,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "west": {
@@ -115,7 +116,7 @@ export const matches: Match[] = [
       "lost": 8,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "judge_id": "2",
@@ -132,7 +133,7 @@ export const matches: Match[] = [
       "lost": 5,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "west": {
@@ -145,7 +146,7 @@ export const matches: Match[] = [
       "lost": 5,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "judge_id": "1",
@@ -162,7 +163,7 @@ export const matches: Match[] = [
       "lost": 6,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "west": {
@@ -175,7 +176,7 @@ export const matches: Match[] = [
       "lost": 6,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "judge_id": "2",
@@ -192,7 +193,7 @@ export const matches: Match[] = [
       "lost": 8,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "west": {
@@ -205,7 +206,7 @@ export const matches: Match[] = [
       "lost": 9,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "judge_id": "1",
@@ -222,7 +223,7 @@ export const matches: Match[] = [
       "lost": 8,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "west": {
@@ -235,7 +236,7 @@ export const matches: Match[] = [
       "lost": 9,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "judge_id": "1",
@@ -252,7 +253,7 @@ export const matches: Match[] = [
       "lost": 8,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "west": {
@@ -265,7 +266,7 @@ export const matches: Match[] = [
       "lost": 7,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "judge_id": "2",
@@ -282,7 +283,7 @@ export const matches: Match[] = [
       "lost": 7,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "west": {
@@ -295,7 +296,7 @@ export const matches: Match[] = [
       "lost": 8,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "judge_id": "1",
@@ -312,7 +313,7 @@ export const matches: Match[] = [
       "lost": 8,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "west": {
@@ -325,7 +326,7 @@ export const matches: Match[] = [
       "lost": 14,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "judge_id": "1",
@@ -342,7 +343,7 @@ export const matches: Match[] = [
       "lost": 9,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "west": {
@@ -355,7 +356,7 @@ export const matches: Match[] = [
       "lost": 11,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "judge_id": "1",
@@ -372,7 +373,7 @@ export const matches: Match[] = [
       "lost": 6,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "west": {
@@ -385,7 +386,7 @@ export const matches: Match[] = [
       "lost": 5,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "judge_id": "2",
@@ -402,7 +403,7 @@ export const matches: Match[] = [
       "lost": 7,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "west": {
@@ -415,7 +416,7 @@ export const matches: Match[] = [
       "lost": 5,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "judge_id": "1",
@@ -432,7 +433,7 @@ export const matches: Match[] = [
       "lost": 8,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "west": {
@@ -445,7 +446,7 @@ export const matches: Match[] = [
       "lost": 12,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "judge_id": "1",
@@ -462,7 +463,7 @@ export const matches: Match[] = [
       "lost": 9,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "west": {
@@ -475,7 +476,7 @@ export const matches: Match[] = [
       "lost": 12,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "judge_id": "1",
@@ -492,7 +493,7 @@ export const matches: Match[] = [
       "lost": 6,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "west": {
@@ -505,7 +506,7 @@ export const matches: Match[] = [
       "lost": 4,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "judge_id": "1",
@@ -522,7 +523,7 @@ export const matches: Match[] = [
       "lost": 8,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "west": {
@@ -535,7 +536,7 @@ export const matches: Match[] = [
       "lost": 9,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "judge_id": "1",
@@ -552,7 +553,7 @@ export const matches: Match[] = [
       "lost": 10,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "west": {
@@ -565,7 +566,7 @@ export const matches: Match[] = [
       "lost": 3,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "judge_id": "2",
@@ -582,7 +583,7 @@ export const matches: Match[] = [
       "lost": 2,
       "rest_jp": "",
       "rest_en": "",
-      "result": false,
+      "result": MATCH_RESULT.LOST,
       "kyokai_member_id": ""
     },
     "west": {
@@ -595,7 +596,7 @@ export const matches: Match[] = [
       "lost": 2,
       "rest_jp": "",
       "rest_en": "",
-      "result": true,
+      "result": MATCH_RESULT.WON,
       "kyokai_member_id": ""
     },
     "judge_id": "2",

@@ -24,6 +24,19 @@ func ParseMatches(response *sumojp.Response) []models.Match {
 	return matches
 }
 
+func parseResult(resultImage string) int {
+	switch resultImage {
+	case "result_ic01.gif":
+		return models.MatchResultWon
+	case "result_ic02.gif":
+		return models.MatchResultLost
+	case "":
+		return models.MatchResultPending
+	default:
+		return models.MatchResultPending
+	}
+}
+
 func parseRikishi(raw sumojp.Rikishi) models.Rikishi {
 	return models.Rikishi{
 		ID:             fmt.Sprintf("%d", raw.RikishiID),
@@ -35,7 +48,7 @@ func parseRikishi(raw sumojp.Rikishi) models.Rikishi {
 		Lost:           raw.LostNumber,
 		RestJP:         raw.Rest,
 		RestEN:         raw.RestEng,
-		Result:         raw.ResultImage == "result_ic01.gif",
+		Result:         parseResult(raw.ResultImage),
 		KyokaiMemberID: raw.KyokaiMemberID,
 	}
 }

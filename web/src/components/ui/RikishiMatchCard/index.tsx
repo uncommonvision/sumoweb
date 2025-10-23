@@ -1,5 +1,6 @@
 import type { Rikishi } from '@/types'
 import RikishiMatchCardImage from '../RikishiMatchCardImage'
+import RikishiMatchCardResult from '../RikishiMatchCardResult'
 import { useLanguagePreference } from '@/hooks/useLanguagePreference'
 
 interface RikishiMatchCardProps {
@@ -13,10 +14,7 @@ export default function RikishiMatchCard({ rikishi, side, isExpanded = false }: 
   const isEast = side === 'east'
   return (
     <div className="bg-card relative text-card-foreground flex items-start h-full">
-      <div className={`absolute bottom-0 bg-stone-500 p-1
-        ${side == 'east' ? 'left-0 rounded-tr rounded-bl' : 'right-0 rounded-tl rounded-br'}`}>
-        <div className={`w-4 h-4 rounded-full shadow ${rikishi.result ? 'bg-white' : 'bg-black'}`}></div>
-      </div>
+      <RikishiMatchCardResult rikishi={rikishi} side={side} />
 
       <div className={`flex ${isEast ? 'flex-row' : 'flex-row-reverse'} items-center gap-2 flex-1 h-[100px]`}>
         <RikishiMatchCardImage rikishi={rikishi} />
