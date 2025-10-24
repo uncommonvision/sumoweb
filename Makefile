@@ -1,4 +1,4 @@
-.PHONY: server-dev server-dev+ server-build server-test server-clean help
+.PHONY: server-dev server-dev+ server-build server-test server-clean dragonfly-up dragonfly-down dragonfly-logs dragonfly-cli dragonfly-clean help
 
 web-dev:
 	@echo "Starting web in development mode..."
@@ -43,6 +43,27 @@ server-clean:
 	@rm -rf bin/
 	@echo "Clean complete"
 
+dragonfly-up:
+	@echo "Starting Dragonfly container..."
+	@docker compose up -d dragonfly
+	@echo "Dragonfly is running on localhost:6379"
+
+dragonfly-down:
+	@echo "Stopping Dragonfly container..."
+	@docker compose down dragonfly
+
+dragonfly-logs:
+	@echo "Showing Dragonfly logs..."
+	@docker compose logs -f dragonfly
+
+dragonfly-cli:
+	@echo "Connecting to Dragonfly CLI..."
+	@docker compose exec dragonfly redis-cli
+
+dragonfly-clean:
+	@echo "Removing Dragonfly data..."
+	@docker compose down dragonfly -v
+
 help:
 	@echo "Available targets:"
 	@echo ""
@@ -52,6 +73,13 @@ help:
 	@echo "  make server-build   - Build server binary"
 	@echo "  make server-test    - Run server tests"
 	@echo "  make server-clean   - Remove server build artifacts"
+	@echo ""
+	@echo "Dragonfly:"
+	@echo "  make dragonfly-up   - Start Dragonfly container"
+	@echo "  make dragonfly-down - Stop Dragonfly container"
+	@echo "  make dragonfly-logs - Show Dragonfly logs"
+	@echo "  make dragonfly-cli  - Connect to Dragonfly CLI"
+	@echo "  make dragonfly-clean - Remove Dragonfly container and data"
 	@echo ""
 	@echo "General:"
 	@echo "  make help           - Show this help message"

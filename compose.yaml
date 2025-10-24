@@ -1,0 +1,20 @@
+services:
+  dragonfly:
+    command: >
+      dragonfly
+      --logtostderr
+      --requirepass=${DRAGONFLY_PASSWORD:-}
+    healthcheck:
+      interval: 10s
+      retries: 3
+      test: ["CMD", "redis-cli", "ping"]
+      timeout: 3s
+    image: docker.dragonflydb.io/dragonflydb/dragonfly
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    volumes:
+      - dragonfly_data:/data
+
+volumes:
+  dragonfly_data:
