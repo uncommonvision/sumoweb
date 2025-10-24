@@ -4,10 +4,10 @@ import (
 	"log"
 	"net/http"
 
-	ws "sumoweb/server/internal/websocket"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
+	ws "sumoweb/server/internal/websocket"
 )
 
 var upgrader = websocket.Upgrader{
@@ -21,7 +21,8 @@ var upgrader = websocket.Upgrader{
 func HandleWebSocket(c *gin.Context) {
 	id := c.Param("id")
 
-	if _, err := uuid.Parse(id); err != nil {
+	// if _, err := uuid.Parse(id); err != nil {
+	if id == "" {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error":   "invalid_id",
 			"message": "ID must be a valid UUID",

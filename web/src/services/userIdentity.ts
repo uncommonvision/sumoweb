@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 import type { User } from '@/types'
+import { generateAnonymousRikishiName } from '@/lib/utils'
 
 type UserChangeHandler = (user: User | null) => void
 
@@ -31,6 +32,15 @@ function createUserIdentityService() {
     return user
   }
 
+  const getOrCreateUserIdentity = (): User => {
+    if (currentUser) {
+      return currentUser
+    }
+
+    const anonymousName = generateAnonymousRikishiName()
+    return setUserIdentity(anonymousName)
+  }
+
   const clearUserIdentity = (): void => {
     currentUser = null
     notifyUserChange(null)
@@ -46,6 +56,7 @@ function createUserIdentityService() {
   return {
     getUserIdentity,
     setUserIdentity,
+    getOrCreateUserIdentity,
     clearUserIdentity,
     onUserChange
   }

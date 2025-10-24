@@ -1,12 +1,12 @@
 package routes
 
 import (
+	"github.com/gin-gonic/gin"
 	"sumoweb/server/internal/handlers"
 	matchHandlers "sumoweb/server/internal/handlers/match"
 	rikishiHandlers "sumoweb/server/internal/handlers/rikishi"
 	wsHandlers "sumoweb/server/internal/handlers/websocket"
 	"sumoweb/server/internal/middleware"
-	"github.com/gin-gonic/gin"
 )
 
 func Setup(router *gin.Engine) {
@@ -22,5 +22,10 @@ func Setup(router *gin.Engine) {
 		api.GET("/matches/:division/:day", matchHandlers.HandleGetMatches)
 		api.GET("/rikishi/:id", rikishiHandlers.HandleGetRikishi)
 		api.GET("/rikishi/:id/:lang/image.png", rikishiHandlers.HandleGetRikishiImage)
+
+		admin := api.Group("/admin")
+		{
+			admin.POST("/broadcast/matches/:division/:day", wsHandlers.HandleBroadcastMatches)
+		}
 	}
 }

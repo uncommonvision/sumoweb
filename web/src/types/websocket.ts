@@ -1,4 +1,12 @@
 import type { User, Channel } from './messages'
+import type { Match } from './sumo'
+
+export type WebsocketSumoMessage =
+  | MessageEvent
+  | UserJoinedEvent
+  | UserLeftEvent
+  | ErrorEvent
+  | MatchUpdateEvent
 
 export type WebSocketMessage =
   | MessageEvent
@@ -46,4 +54,16 @@ export interface UserEventPayload {
 export interface ErrorPayload {
   message: string
   code?: string
+}
+
+export interface MatchUpdatePayload {
+  division: number
+  day: number
+  matches: Match[]
+}
+
+export interface MatchUpdateEvent {
+  type: 'MATCH_UPDATE'
+  payload: MatchUpdatePayload
+  timestamp: string
 }

@@ -5,6 +5,7 @@ import type { User } from '@/types'
 interface UseUserIdentityReturn {
   user: User | null
   setUser: (name: string) => User
+  getOrCreateUser: () => User
   clearUser: () => void
 }
 
@@ -23,6 +24,10 @@ export function useUserIdentity(): UseUserIdentityReturn {
     return userIdentityService.setUserIdentity(name)
   }
 
+  const getOrCreateUser = (): User => {
+    return userIdentityService.getOrCreateUserIdentity()
+  }
+
   const clearUser = (): void => {
     userIdentityService.clearUserIdentity()
   }
@@ -30,6 +35,7 @@ export function useUserIdentity(): UseUserIdentityReturn {
   return {
     user,
     setUser,
+    getOrCreateUser,
     clearUser
   }
 }

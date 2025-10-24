@@ -5,6 +5,7 @@ export type WSMessageType =
   | 'USER_JOINED'
   | 'USER_LEFT'
   | 'CHAT_MESSAGE'
+  | 'MATCH_UPDATE'
 
 export interface ConnectionAckData {
   id: string

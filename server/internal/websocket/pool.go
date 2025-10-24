@@ -3,6 +3,8 @@ package websocket
 import (
 	"log"
 	"sync"
+
+	"sumoweb/server/internal/models"
 )
 
 type ConnectionPool struct {
@@ -131,4 +133,20 @@ func (p *ConnectionPool) GetUUIDConnections(uuid string) []*Connection {
 	defer p.mu.RUnlock()
 
 	return p.index[uuid]
+}
+
+func (p *ConnectionPool) BroadcastMatchUpdate(channelKey string, division, day int, matches []models.Match) error {
+	payload := MatchUpdatePayload{
+		Division: division,
+		Day:      day,
+		Matches:  matches,
+	}
+
+	msg, err := NewMessage(MessageTypeMatchUpdate, payload)
+	if err != nil {
+		return err
+	}
+
+	p.BroadcastToUUID(channelKey, msg)
+	return nil
 }

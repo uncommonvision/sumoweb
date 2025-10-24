@@ -3,6 +3,8 @@ package websocket
 import (
 	"encoding/json"
 	"time"
+
+	"sumoweb/server/internal/models"
 )
 
 const (
@@ -12,6 +14,7 @@ const (
 	MessageTypeUserJoined    = "USER_JOINED"
 	MessageTypeUserLeft      = "USER_LEFT"
 	MessageTypeChatMessage   = "CHAT_MESSAGE"
+	MessageTypeMatchUpdate   = "MATCH_UPDATE"
 )
 
 type WSMessage struct {
@@ -48,4 +51,10 @@ type UserLeftPayload struct {
 	UserID    string `json:"userId"`
 	UserName  string `json:"userName"`
 	SessionID string `json:"sessionId"`
+}
+
+type MatchUpdatePayload struct {
+	Division int            `json:"division"`
+	Day      int            `json:"day"`
+	Matches  []models.Match `json:"matches"`
 }
