@@ -9,13 +9,21 @@ import (
 	"syscall"
 	"time"
 
-	"sumoweb/server/internal/config"
-	"sumoweb/server/internal/routes"
 	"github.com/gin-gonic/gin"
+	"sumoweb/server/internal/config"
+	"sumoweb/server/internal/queue"
+	"sumoweb/server/internal/routes"
 )
 
 func main() {
 	cfg := config.Load()
+
+	_, err := queue.InitClient(cfg)
+	if err != nil {
+		log.Printf("Warning: Failed to connect to Dragonfly: %v", err)
+		log.Println("Server will continue without queue support")
+	}
+	defer queue.Close()
 
 	if cfg.Environment == "production" {
 		gin.SetMode(gin.ReleaseMode)
