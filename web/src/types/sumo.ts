@@ -49,7 +49,10 @@ export interface Rikishi {
   rest_en: string
   result: MatchResult
   kyokai_member_id: string
-  profile?: RikishiProfile
+  profiles?: {
+    en: RikishiProfileDetails
+    jp: RikishiProfileDetails
+  }
 }
 
 export interface Match {

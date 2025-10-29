@@ -59,7 +59,7 @@ export interface ErrorPayload {
 export interface MatchUpdatePayload {
   division: number
   day: number
-  matches: Match[]
+  matches: Match[]  // Contains only changed matches (delta), not full list
 }
 
 export interface MatchUpdateEvent {

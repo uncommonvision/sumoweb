@@ -1,9 +1,18 @@
 services:
+  asynqmon:
+    env_file: server/env/asynqmon.env
+    image: hibiken/asynqmon:latest
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+
   dragonfly:
     command: >
       dragonfly
       --logtostderr
       --requirepass=${DRAGONFLY_PASSWORD:-}
+      --default_lua_flags=allow-undeclared-keys
+    env_file: server/env/dragonfly.env
     healthcheck:
       interval: 10s
       retries: 3
@@ -15,6 +24,26 @@ services:
     restart: unless-stopped
     volumes:
       - dragonfly_data:/data
+
+  redisinsight:
+    env_file: server/env/redisinsight.env
+    image: redis/redisinsight:latest
+    ports:
+      - "5540:5540"
+    restart: unless-stopped
+
+  # traefik:
+  #   command:
+  #     - "--api.insecure=true"
+  #     - "--providers.docker=true"
+  #     - "--entrypoints.web.address=:80"
+  #   image: traefik:v3.5
+  #   ports:
+  #     - "80:80"
+  #     - "8080:8080"
+  #   restart: unless-stopped
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock:ro
 
 volumes:
   dragonfly_data:
